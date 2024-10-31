@@ -1,6 +1,6 @@
 ﻿namespace PRG282Project
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -92,7 +92,7 @@
             this.btnSummary.Text = "Generate a Report Summary";
             this.btnSummary.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -103,8 +103,8 @@
             this.Controls.Add(this.dgvStudents);
             this.Controls.Add(this.btnViewAllStudents);
             this.Controls.Add(this.btnAddStudent);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "frmMain";
+            this.Text = "Main";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
             this.ResumeLayout(false);
