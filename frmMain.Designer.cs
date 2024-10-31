@@ -73,6 +73,7 @@
             this.btnUpdateStudent.TabIndex = 3;
             this.btnUpdateStudent.Text = "Update Student";
             this.btnUpdateStudent.UseVisualStyleBackColor = true;
+            this.btnUpdateStudent.Click += new System.EventHandler(this.btnUpdateStudent_Click);
             // 
             // btnDeleteStudent
             // 
@@ -82,6 +83,7 @@
             this.btnDeleteStudent.TabIndex = 4;
             this.btnDeleteStudent.Text = "Delete Student";
             this.btnDeleteStudent.UseVisualStyleBackColor = true;
+            this.btnDeleteStudent.Click += new System.EventHandler(this.btnDeleteStudent_Click);
             // 
             // btnSummary
             // 

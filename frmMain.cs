@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace PRG282Project
 {
@@ -20,6 +21,16 @@ namespace PRG282Project
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnUpdateStudent_Click(object sender, EventArgs e)
+        {
+            //cell click exsists 
+        }
+
+        private void btnDeleteStudent_Click(object sender, EventArgs e)
+        {
+            //cell click exsists 
         }
     }
 }
