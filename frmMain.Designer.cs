@@ -1,4 +1,4 @@
-﻿namespace PRG282Project
+﻿    namespace PRG282Project
 {
     partial class frmMain
     {
@@ -45,6 +45,7 @@
             this.btnAddStudent.TabIndex = 0;
             this.btnAddStudent.Text = "Add Student";
             this.btnAddStudent.UseVisualStyleBackColor = true;
+            this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
             // btnViewAllStudents
             // 
@@ -58,11 +59,11 @@
             // dgvStudents
             // 
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudents.Location = new System.Drawing.Point(233, 113);
+            this.dgvStudents.Location = new System.Drawing.Point(185, 113);
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.RowHeadersWidth = 51;
             this.dgvStudents.RowTemplate.Height = 24;
-            this.dgvStudents.Size = new System.Drawing.Size(240, 150);
+            this.dgvStudents.Size = new System.Drawing.Size(603, 253);
             this.dgvStudents.TabIndex = 2;
             // 
             // btnUpdateStudent
@@ -93,6 +94,7 @@
             this.btnSummary.TabIndex = 5;
             this.btnSummary.Text = "Generate a Report Summary";
             this.btnSummary.UseVisualStyleBackColor = true;
+            this.btnSummary.Click += new System.EventHandler(this.btnSummary_Click);
             // 
             // frmMain
             // 
