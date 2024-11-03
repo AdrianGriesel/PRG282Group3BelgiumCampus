@@ -143,5 +143,10 @@ namespace PRG282Project
             fileManager.GenerateSummary();
             MessageBox.Show("Summary report generated.");
         }
+
+        private void btnViewAllStudents_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 } 

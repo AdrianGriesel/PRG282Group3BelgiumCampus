@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnAddStudent = new System.Windows.Forms.Button();
-            this.btnViewAllStudents = new System.Windows.Forms.Button();
             this.dgvStudents = new System.Windows.Forms.DataGridView();
             this.btnUpdateStudent = new System.Windows.Forms.Button();
             this.btnDeleteStudent = new System.Windows.Forms.Button();
@@ -46,15 +45,6 @@
             this.btnAddStudent.Text = "Add Student";
             this.btnAddStudent.UseVisualStyleBackColor = true;
             this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
-            // 
-            // btnViewAllStudents
-            // 
-            this.btnViewAllStudents.Location = new System.Drawing.Point(45, 191);
-            this.btnViewAllStudents.Name = "btnViewAllStudents";
-            this.btnViewAllStudents.Size = new System.Drawing.Size(134, 23);
-            this.btnViewAllStudents.TabIndex = 1;
-            this.btnViewAllStudents.Text = "View All Students";
-            this.btnViewAllStudents.UseVisualStyleBackColor = true;
             // 
             // dgvStudents
             // 
@@ -105,7 +95,6 @@
             this.Controls.Add(this.btnDeleteStudent);
             this.Controls.Add(this.btnUpdateStudent);
             this.Controls.Add(this.dgvStudents);
-            this.Controls.Add(this.btnViewAllStudents);
             this.Controls.Add(this.btnAddStudent);
             this.Name = "frmMain";
             this.Text = "Main";
@@ -118,7 +107,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnAddStudent;
-        private System.Windows.Forms.Button btnViewAllStudents;
         private System.Windows.Forms.DataGridView dgvStudents;
         private System.Windows.Forms.Button btnUpdateStudent;
         private System.Windows.Forms.Button btnDeleteStudent;
