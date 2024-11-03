@@ -141,10 +141,15 @@ namespace PRG282Project
         {
 
             fileManager.GenerateSummary();
-            MessageBox.Show("Summary report generated.");
+            MessageBox.Show("Summary report generated.");//(As a text file by the name "summary" in bin->debug)
         }
 
         private void btnViewAllStudents_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbVia_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

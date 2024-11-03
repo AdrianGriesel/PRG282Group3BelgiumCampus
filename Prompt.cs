@@ -1,38 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 using System.Windows.Forms;
 
-namespace PRG282Project
+public static class Prompt
 {
-    internal class Prompt
+    public static string ShowDialog(string text, string caption)
     {
-        public static string ShowDialog(string text, string caption)
+        Form prompt = new Form()
         {
-            Form prompt = new Form()
-            {
-                Width = 300,
-                Height = 150,
-                Text = caption,
-                FormBorderStyle = FormBorderStyle.FixedDialog,
-                StartPosition = FormStartPosition.CenterScreen,
-                MaximizeBox = false,
-                MinimizeBox = false
-            };
+            Width = 400,
+            Height = 250,
+            FormBorderStyle = FormBorderStyle.FixedDialog,
+            Text = caption,
+            StartPosition = FormStartPosition.CenterScreen,
+            BackColor = Color.LightCyan
+        };
 
-            Label textLabel = new Label() { Left = 50, Top = 20, Text = text };
-            TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 200 };
-            Button confirmation = new Button() { Text = "Ok", Left = 200, Top = 70, Width = 100, DialogResult = DialogResult.OK };
-            confirmation.Click += (sender, e) => { prompt.Close(); };
+        Label textLabel = new Label() { Left = 20, Top = 20, Text = text, AutoSize = true };
+        textLabel.Font = new Font("Arial", 10, FontStyle.Bold);
 
-            prompt.Controls.Add(textLabel);
-            prompt.Controls.Add(textBox);
-            prompt.Controls.Add(confirmation);
-            prompt.AcceptButton = confirmation;
+        TextBox inputBox = new TextBox() { Left = 20, Top = 50, Width = 340, Height = 25 };
 
-            return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
-        }
+        Button confirmation = new Button()
+        {
+            Text = "OK",
+            Left = 120,
+            Width = 80,
+            Height = 30,
+            Top = 100,
+            BackColor = Color.LightBlue
+        };
+
+        Button cancel = new Button()
+        {
+            Text = "Cancel",
+            Left = 220,
+            Width = 80,
+            Height = 30,
+            Top = 100,
+            BackColor = Color.LightGray
+        };
+
+        confirmation.Click += (sender, e) => { prompt.DialogResult = DialogResult.OK; prompt.Close(); };
+        cancel.Click += (sender, e) => { prompt.DialogResult = DialogResult.Cancel; prompt.Close(); };
+
+        prompt.Controls.Add(textLabel);
+        prompt.Controls.Add(inputBox);
+        prompt.Controls.Add(confirmation);
+        prompt.Controls.Add(cancel);
+        prompt.AcceptButton = confirmation;
+        prompt.CancelButton = cancel;
+
+        return prompt.ShowDialog() == DialogResult.OK ? inputBox.Text : null;
     }
 }
