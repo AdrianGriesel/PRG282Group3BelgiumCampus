@@ -6,6 +6,7 @@ public static class Prompt
 {
     public static string ShowDialog(string text, string caption)
     {
+        //prompts formatting
         Form prompt = new Form()
         {
             Width = 400,
@@ -21,6 +22,7 @@ public static class Prompt
 
         TextBox inputBox = new TextBox() { Left = 20, Top = 50, Width = 340, Height = 25 };
 
+        //ok button formatting
         Button confirmation = new Button()
         {
             Text = "OK",
@@ -31,6 +33,7 @@ public static class Prompt
             BackColor = Color.LightBlue
         };
 
+        //cancel button formatting
         Button cancel = new Button()
         {
             Text = "Cancel",
@@ -41,16 +44,46 @@ public static class Prompt
             BackColor = Color.LightGray
         };
 
-        confirmation.Click += (sender, e) => { prompt.DialogResult = DialogResult.OK; prompt.Close(); };
-        cancel.Click += (sender, e) => { prompt.DialogResult = DialogResult.Cancel; prompt.Close(); };
+        //adding event handlers to the confirmation and cancel buttons
+        confirmation.Click += ConfirmPrompt;
+        cancel.Click += CancelPrompt;
 
+        //event handler for the confirmation and cancel buttons
+        void ConfirmPrompt(object sender, EventArgs e)
+        {
+            //setting dialog result to OK and closeing the prompt
+            prompt.DialogResult = DialogResult.OK;
+            prompt.Close();
+        }
+
+        void CancelPrompt(object sender, EventArgs e)
+        {
+            prompt.DialogResult = DialogResult.Cancel;
+            prompt.Close();
+        }
+
+        //adding controls to the prompt form
         prompt.Controls.Add(textLabel);
         prompt.Controls.Add(inputBox);
         prompt.Controls.Add(confirmation);
         prompt.Controls.Add(cancel);
-        prompt.AcceptButton = confirmation;
-        prompt.CancelButton = cancel;
 
-        return prompt.ShowDialog() == DialogResult.OK ? inputBox.Text : null;
+        //setting the default buttons for:
+        prompt.AcceptButton = confirmation;//enter
+        prompt.CancelButton = cancel;//escape
+
+        //showing the dialog and getting the result
+        var dialogResult = prompt.ShowDialog();
+
+
+        //checking the result and returning the input text if confirmed, otherwise returning null
+        if (dialogResult == DialogResult.OK)
+        {
+            return inputBox.Text;
+        }
+        else
+        {
+            return null;
+        }
     }
 }

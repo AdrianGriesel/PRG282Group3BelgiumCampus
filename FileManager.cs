@@ -12,30 +12,36 @@ namespace PRG282Project
 
         public FileManager()
         {
-            // Create files if they do not exist
+            //creating files if they do not exist
             if (!File.Exists(studentFilePath)) File.Create(studentFilePath).Dispose();
             if (!File.Exists(summaryFilePath)) File.Create(summaryFilePath).Dispose();
         }
 
         public bool AddStudent(Student student)
         {
-            // Check for duplicate StudentID
-            if (GetAllStudents().Any(s => s.StudentID == student.StudentID))
+            //checking for duplicate StudentIDs
+            foreach (var s in GetAllStudents())
             {
-                return false; // Student already exists
+                if (s.StudentID == student.StudentID)
+                {
+                    return false;//and outputs flase if already exists
+                }
             }
 
+            //adding student
             using (StreamWriter writer = new StreamWriter(studentFilePath, true))
             {
                 writer.WriteLine($"{student.StudentID},{student.Name},{student.Age},{student.Course}");
             }
-            return true; // Successfully added
+            return true;
         }
 
         public List<Student> GetAllStudents()
         {
             var students = new List<Student>();
 
+
+            //checking if the file exists, then reading and passing thru each line
             if (File.Exists(studentFilePath))
             {
                 var lines = File.ReadAllLines(studentFilePath);
@@ -43,6 +49,7 @@ namespace PRG282Project
                 {
                     var fields = line.Split(',');
 
+                    //checking for correct format and creainge a Student object
                     if (fields.Length == 4)
                     {
                         students.Add(new Student
@@ -56,52 +63,92 @@ namespace PRG282Project
                 }
             }
 
+            //returning the list of students
             return students;
         }
 
         public bool UpdateStudent(Student updatedStudent)
         {
             var students = GetAllStudents();
-            var existingStudent = students.FirstOrDefault(s => s.StudentID == updatedStudent.StudentID);
+            Student existingStudent = null;
+
+            //finding the student with the matching ID
+            foreach (var student in students)
+            {
+                if (student.StudentID == updatedStudent.StudentID)
+                {
+                    existingStudent = student;
+                    break;
+                }
+            }
 
             if (existingStudent == null)
-                return false; // Student not found
+                return false; //when student not found
 
-            // Update student information
+            //updating the student's info
             existingStudent.Name = updatedStudent.Name;
             existingStudent.Age = updatedStudent.Age;
             existingStudent.Course = updatedStudent.Course;
 
-            WriteStudentsToFile(students); // Save changes to file
-            return true; // Successfully updated
+            WriteStudentsToFile(students); //saving updated list to file
+            return true; //when updating is successful
         }
 
         public bool DeleteStudent(string studentId)
         {
             var students = GetAllStudents();
-            var student = students.FirstOrDefault(s => s.StudentID == studentId);
+            Student student = null;
+
+            //finding the student with the matching ID
+            foreach (var s in students)
+            {
+                if (s.StudentID == studentId)
+                {
+                    student = s;
+                    break;
+                }
+            }
 
             if (student == null)
-                return false; // Student not found
+                return false; //when student is not found
 
-            students.Remove(student); // Remove student from list
-            WriteStudentsToFile(students); // Save changes to file
-            return true; // Successfully deleted
+            students.Remove(student);
+            WriteStudentsToFile(students); //saving changes to txt file
+            return true; //when successfully deleted
+
         }
 
         public void GenerateSummary()
         {
             var students = GetAllStudents();
-            if (students.Count == 0) return;
+            if (students.Count == 0) return; //if no students to process return
 
             int totalStudents = students.Count;
-            double averageAge = students.Average(s => s.Age);
+            double totalAge = 0;
+
+            //calculating total age
+            foreach (var s in students)
+            {
+                totalAge += s.Age;
+            }
+
+            //calculating average age
+            double averageAge;
+            if (totalStudents > 0)
+            {
+                averageAge = totalAge / totalStudents;
+            }
+            else
+            {
+                averageAge = 0; //if no students, average age is 0
+            }
 
             using (StreamWriter writer = new StreamWriter(summaryFilePath, false))
             {
                 writer.WriteLine($"Total Students: {totalStudents}");
                 writer.WriteLine($"Average Age: {averageAge:F2}");
             }
+
         }
 
         private void WriteStudentsToFile(List<Student> students)

@@ -11,7 +11,9 @@ namespace PRG282Project
     {
         public void GenerateSummary()
         {
+            //creatibg an instance of the FileManager class
             FileManager fileManager = new FileManager();
+            //calling the GenerateSummary method of the FileManager to generate the summary
             fileManager.GenerateSummary();
         }
     }
