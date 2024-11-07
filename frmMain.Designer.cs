@@ -34,7 +34,7 @@
             this.btnDeleteStudent = new System.Windows.Forms.Button();
             this.btnSummary = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearchVia = new System.Windows.Forms.TextBox();
             this.cmbVia = new System.Windows.Forms.ComboBox();
             this.lblVia = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
@@ -42,10 +42,9 @@
             // 
             // btnAddStudent
             // 
-            this.btnAddStudent.Location = new System.Drawing.Point(15, 119);
-            this.btnAddStudent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddStudent.Location = new System.Drawing.Point(16, 149);
             this.btnAddStudent.Name = "btnAddStudent";
-            this.btnAddStudent.Size = new System.Drawing.Size(155, 38);
+            this.btnAddStudent.Size = new System.Drawing.Size(174, 48);
             this.btnAddStudent.TabIndex = 0;
             this.btnAddStudent.Text = "Add Student";
             this.btnAddStudent.UseVisualStyleBackColor = true;
@@ -54,20 +53,18 @@
             // dgvStudents
             // 
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudents.Location = new System.Drawing.Point(175, 119);
-            this.dgvStudents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvStudents.Location = new System.Drawing.Point(196, 149);
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.RowHeadersWidth = 51;
             this.dgvStudents.RowTemplate.Height = 24;
-            this.dgvStudents.Size = new System.Drawing.Size(611, 318);
+            this.dgvStudents.Size = new System.Drawing.Size(687, 397);
             this.dgvStudents.TabIndex = 2;
             // 
             // btnUpdateStudent
             // 
-            this.btnUpdateStudent.Location = new System.Drawing.Point(15, 215);
-            this.btnUpdateStudent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUpdateStudent.Location = new System.Drawing.Point(16, 269);
             this.btnUpdateStudent.Name = "btnUpdateStudent";
-            this.btnUpdateStudent.Size = new System.Drawing.Size(155, 38);
+            this.btnUpdateStudent.Size = new System.Drawing.Size(174, 48);
             this.btnUpdateStudent.TabIndex = 3;
             this.btnUpdateStudent.Text = "Update Student";
             this.btnUpdateStudent.UseVisualStyleBackColor = true;
@@ -75,10 +72,9 @@
             // 
             // btnDeleteStudent
             // 
-            this.btnDeleteStudent.Location = new System.Drawing.Point(15, 304);
-            this.btnDeleteStudent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDeleteStudent.Location = new System.Drawing.Point(16, 380);
             this.btnDeleteStudent.Name = "btnDeleteStudent";
-            this.btnDeleteStudent.Size = new System.Drawing.Size(155, 38);
+            this.btnDeleteStudent.Size = new System.Drawing.Size(174, 48);
             this.btnDeleteStudent.TabIndex = 4;
             this.btnDeleteStudent.Text = "Delete Student";
             this.btnDeleteStudent.UseVisualStyleBackColor = true;
@@ -86,10 +82,9 @@
             // 
             // btnSummary
             // 
-            this.btnSummary.Location = new System.Drawing.Point(15, 399);
-            this.btnSummary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSummary.Location = new System.Drawing.Point(16, 498);
             this.btnSummary.Name = "btnSummary";
-            this.btnSummary.Size = new System.Drawing.Size(155, 38);
+            this.btnSummary.Size = new System.Drawing.Size(174, 48);
             this.btnSummary.TabIndex = 5;
             this.btnSummary.Text = "Generate a Summary";
             this.btnSummary.UseVisualStyleBackColor = true;
@@ -97,22 +92,22 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(15, 38);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Location = new System.Drawing.Point(16, 48);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(153, 38);
+            this.btnSearch.Size = new System.Drawing.Size(172, 48);
             this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // textBox1
+            // txtSearchVia
             // 
-            this.textBox1.Location = new System.Drawing.Point(385, 46);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(397, 22);
-            this.textBox1.TabIndex = 7;
+            this.txtSearchVia.Location = new System.Drawing.Point(434, 57);
+            this.txtSearchVia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSearchVia.Name = "txtSearchVia";
+            this.txtSearchVia.Size = new System.Drawing.Size(446, 26);
+            this.txtSearchVia.TabIndex = 7;
             // 
             // cmbVia
             // 
@@ -122,40 +117,44 @@
             "Age",
             "Course"});
             this.cmbVia.FormattingEnabled = true;
-            this.cmbVia.Location = new System.Drawing.Point(216, 44);
-            this.cmbVia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbVia.Items.AddRange(new object[] {
+            "Student ID",
+            "Name",
+            "Age",
+            "Course"});
+            this.cmbVia.Location = new System.Drawing.Point(243, 55);
+            this.cmbVia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbVia.Name = "cmbVia";
-            this.cmbVia.Size = new System.Drawing.Size(160, 24);
+            this.cmbVia.Size = new System.Drawing.Size(180, 28);
             this.cmbVia.TabIndex = 8;
             this.cmbVia.SelectedIndexChanged += new System.EventHandler(this.cmbVia_SelectedIndexChanged);
             // 
             // lblVia
             // 
             this.lblVia.AutoSize = true;
-            this.lblVia.Location = new System.Drawing.Point(176, 49);
+            this.lblVia.Location = new System.Drawing.Point(198, 62);
             this.lblVia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVia.Name = "lblVia";
-            this.lblVia.Size = new System.Drawing.Size(28, 16);
+            this.lblVia.Size = new System.Drawing.Size(32, 20);
             this.lblVia.TabIndex = 9;
             this.lblVia.Text = "via ";
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.BackgroundImage = global::PRG282Project.Properties.Resources._5625780;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(900, 563);
             this.Controls.Add(this.lblVia);
             this.Controls.Add(this.cmbVia);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSearchVia);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnSummary);
             this.Controls.Add(this.btnDeleteStudent);
             this.Controls.Add(this.btnUpdateStudent);
             this.Controls.Add(this.dgvStudents);
             this.Controls.Add(this.btnAddStudent);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmMain";
             this.Text = "Main";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -173,7 +172,7 @@
         private System.Windows.Forms.Button btnDeleteStudent;
         private System.Windows.Forms.Button btnSummary;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearchVia;
         private System.Windows.Forms.ComboBox cmbVia;
         private System.Windows.Forms.Label lblVia;
     }

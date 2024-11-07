@@ -32,7 +32,7 @@ namespace PRG282Project
         }
         private void btnUpdateStudent_Click(object sender, EventArgs e)
         {
-            //cell click exsists 
+            //cell click exists 
             if (dgvStudents.SelectedRows.Count > 0)
             {
                 var selectedRow = dgvStudents.SelectedRows[0];
@@ -156,7 +156,11 @@ namespace PRG282Project
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //S
+            string option = cmbVia.SelectedItem.ToString();
+            string SearchVia = txtSearchVia.Text;
+            fileManager.Search(SearchVia, option);
+            dgvStudents.DataSource = fileManager.Search(SearchVia,option);
+
         }
     }
 } 

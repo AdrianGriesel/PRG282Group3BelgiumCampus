@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace PRG282Project
 {
@@ -149,6 +151,72 @@ namespace PRG282Project
                 writer.WriteLine($"Average Age: {averageAge:F2}");
             }
 
+        }
+
+        public List<string> Search(string cmbViaValue, string SearchVia)
+        {
+            List<Student> studentsList = GetAllStudents();
+            List<string> SearchResults = new List<string>();
+            switch (cmbViaValue)
+            {
+                case "Student ID":
+                    foreach (var item in studentsList)
+                    {
+                        if (item.StudentID == SearchVia) //check if the student ID matches the search criteria
+                        {
+                            SearchResults.Add(item.StudentID);
+                            SearchResults.Add(item.Name);
+                            SearchResults.Add(item.Age.ToString());
+                            SearchResults.Add(item.Course);
+                        }
+
+                    }
+                    break;
+
+                case "Name":
+                    foreach (var item in studentsList)
+                    {
+                        if (item.Name == SearchVia)//check if the student Name matches the search criteria
+                        {
+                            SearchResults.Add(item.StudentID);
+                            SearchResults.Add(item.Name);
+                            SearchResults.Add(item.Age.ToString());
+                            SearchResults.Add(item.Course);
+                        }
+                    }
+                    break;
+
+                case "Age":
+                    foreach (var item in studentsList)
+                    {
+                        if (item.Age.ToString() == SearchVia)//check if the student Age matches the search criteria
+                        {
+                            SearchResults.Add(item.StudentID);
+                            SearchResults.Add(item.Name);
+                            SearchResults.Add(item.Age.ToString());
+                            SearchResults.Add(item.Course);
+                        }
+                    }
+                    break;
+
+                case "Course":
+                    foreach (var item in studentsList)
+                    {
+                        if (item.Course == SearchVia)//check if the student course matches the search criteria
+                        {
+                            SearchResults.Add(item.StudentID);
+                            SearchResults.Add(item.Name);
+                            SearchResults.Add(item.Age.ToString());
+                            SearchResults.Add(item.Course);
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
+                  
+            }
+            return SearchResults;
         }
 
         private void WriteStudentsToFile(List<Student> students)
