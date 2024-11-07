@@ -13,10 +13,10 @@ namespace PRG282Project
         public void ExportToCSV()
         {
             FileManager fileManager = new FileManager();
-            var saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "CSV files (*.csv)|*.csv";
+            var saveFileDialog = new SaveFileDialog(); //new instance of saveFileDialog class - allows user to save the file on their computer
+            saveFileDialog.Filter = "CSV files (*.csv)|*.csv"; //ensures only files with .csv extention can be saved
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog.ShowDialog() == DialogResult.OK) //executes the code if the user chooses a location, inputs a name and selects "ok"
             {
                 StringBuilder csvContent = new StringBuilder();
                 csvContent.AppendLine("StudentID,Name,Age,Course");
