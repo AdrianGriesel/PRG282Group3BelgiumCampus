@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace PRG282Project
 {
@@ -21,102 +19,141 @@ namespace PRG282Project
 
         public bool AddStudent(Student student)
         {
-            //checking for duplicate StudentIDs
-            foreach (var s in GetAllStudents())
-            {
-                if (s.StudentID == student.StudentID)
-                {
-                    return false;//and outputs flase if already exists
-                }
-            }
 
-            //adding student
-            using (StreamWriter writer = new StreamWriter(studentFilePath, true))
+            try
             {
-                writer.WriteLine($"{student.StudentID},{student.Name},{student.Age},{student.Course}");
+                //checking for duplicate StudentIDs
+                foreach (var s in GetAllStudents())
+                {
+                    if (s.StudentID == student.StudentID)
+                    {
+                        return false;//and outputs flase if already exists
+                    }
+                }
+
+                //adding student
+                using (StreamWriter writer = new StreamWriter(studentFilePath, true))
+                {
+                    writer.WriteLine($"{student.StudentID},{student.Name},{student.Age},{student.Course}");
+                }
+                return true;
             }
-            return true;
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("File was not found: " + ex.Message);
+                throw;
+            }
         }
 
         public List<Student> GetAllStudents()
         {
-            var students = new List<Student>();
 
-
-            //checking if the file exists, then reading and passing thru each line
-            if (File.Exists(studentFilePath))
+            try
             {
-                var lines = File.ReadAllLines(studentFilePath);
-                foreach (var line in lines)
-                {
-                    var fields = line.Split(',');
+                var students = new List<Student>();
 
-                    //checking for correct format and creainge a Student object
-                    if (fields.Length == 4)
+
+                //checking if the file exists, then reading and passing thru each line
+                if (File.Exists(studentFilePath))
+                {
+                    var lines = File.ReadAllLines(studentFilePath);
+                    foreach (var line in lines)
                     {
-                        students.Add(new Student
+                        var fields = line.Split(',');
+
+                        //checking for correct format and creainge a Student object
+                        if (fields.Length == 4)
                         {
-                            StudentID = fields[0],
-                            Name = fields[1],
-                            Age = int.Parse(fields[2]),
-                            Course = fields[3]
-                        });
+                            students.Add(new Student
+                            {
+                                StudentID = fields[0],
+                                Name = fields[1],
+                                Age = int.Parse(fields[2]),
+                                Course = fields[3]
+                            });
+                        }
                     }
                 }
-            }
 
-            //returning the list of students
-            return students;
+                //returning the list of students
+                return students;
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("File does not exist: " + ex.Message);
+                throw;
+            }
+            
         }
 
         public bool UpdateStudent(Student updatedStudent)
         {
-            var students = GetAllStudents();
-            Student existingStudent = null;
 
-            //finding the student with the matching ID
-            foreach (var student in students)
+            try
             {
-                if (student.StudentID == updatedStudent.StudentID)
+                var students = GetAllStudents();
+                Student existingStudent = null;
+
+                //finding the student with the matching ID
+                foreach (var student in students)
                 {
-                    existingStudent = student;
-                    break;
+                    if (student.StudentID == updatedStudent.StudentID)
+                    {
+                        existingStudent = student;
+                        break;
+                    }
                 }
+
+                if (existingStudent == null)
+                    return false; //when student not found
+
+                //updating the student's info
+                existingStudent.Name = updatedStudent.Name;
+                existingStudent.Age = updatedStudent.Age;
+                existingStudent.Course = updatedStudent.Course;
+
+                WriteStudentsToFile(students); //saving updated list to file
+                return true; //when updating is successful
             }
-
-            if (existingStudent == null)
-                return false; //when student not found
-
-            //updating the student's info
-            existingStudent.Name = updatedStudent.Name;
-            existingStudent.Age = updatedStudent.Age;
-            existingStudent.Course = updatedStudent.Course;
-
-            WriteStudentsToFile(students); //saving updated list to file
-            return true; //when updating is successful
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine("Student not found: +" + ex.Message);
+                throw;
+            }
+            
         }
 
         public bool DeleteStudent(string studentId)
         {
-            var students = GetAllStudents();
-            Student student = null;
 
-            //finding the student with the matching ID
-            foreach (var s in students)
+            try
             {
-                if (s.StudentID == studentId)
+                var students = GetAllStudents();
+                Student student = null;
+
+                //finding the student with the matching ID
+                foreach (var s in students)
                 {
-                    student = s;
-                    break;
+                    if (s.StudentID == studentId)
+                    {
+                        student = s;
+                        break;
+                    }
                 }
+
+                if (student == null)
+                    return false; //when student is not found
+
+                students.Remove(student);
+                WriteStudentsToFile(students); //saving changes to txt file
+                return true; //when successfully deleted
             }
-
-            if (student == null)
-                return false; //when student is not found
-
-            students.Remove(student);
-            WriteStudentsToFile(students); //saving changes to txt file
-            return true; //when successfully deleted
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine("Student not deleted: "+ ex.Message);
+                throw;
+            }
+            
 
         }
 
@@ -151,72 +188,6 @@ namespace PRG282Project
                 writer.WriteLine($"Average Age: {averageAge:F2}");
             }
 
-        }
-
-        public List<string> Search(string cmbViaValue, string SearchVia)
-        {
-            List<Student> studentsList = GetAllStudents();
-            List<string> SearchResults = new List<string>();
-            switch (cmbViaValue)
-            {
-                case "Student ID":
-                    foreach (var item in studentsList)
-                    {
-                        if (item.StudentID == SearchVia) //check if the student ID matches the search criteria
-                        {
-                            SearchResults.Add(item.StudentID);
-                            SearchResults.Add(item.Name);
-                            SearchResults.Add(item.Age.ToString());
-                            SearchResults.Add(item.Course);
-                        }
-
-                    }
-                    break;
-
-                case "Name":
-                    foreach (var item in studentsList)
-                    {
-                        if (item.Name == SearchVia)//check if the student Name matches the search criteria
-                        {
-                            SearchResults.Add(item.StudentID);
-                            SearchResults.Add(item.Name);
-                            SearchResults.Add(item.Age.ToString());
-                            SearchResults.Add(item.Course);
-                        }
-                    }
-                    break;
-
-                case "Age":
-                    foreach (var item in studentsList)
-                    {
-                        if (item.Age.ToString() == SearchVia)//check if the student Age matches the search criteria
-                        {
-                            SearchResults.Add(item.StudentID);
-                            SearchResults.Add(item.Name);
-                            SearchResults.Add(item.Age.ToString());
-                            SearchResults.Add(item.Course);
-                        }
-                    }
-                    break;
-
-                case "Course":
-                    foreach (var item in studentsList)
-                    {
-                        if (item.Course == SearchVia)//check if the student course matches the search criteria
-                        {
-                            SearchResults.Add(item.StudentID);
-                            SearchResults.Add(item.Name);
-                            SearchResults.Add(item.Age.ToString());
-                            SearchResults.Add(item.Course);
-                        }
-                    }
-                    break;
-
-                default:
-                    break;
-                  
-            }
-            return SearchResults;
         }
 
         private void WriteStudentsToFile(List<Student> students)
