@@ -37,6 +37,7 @@
             this.txtSearchVia = new System.Windows.Forms.TextBox();
             this.cmbVia = new System.Windows.Forms.ComboBox();
             this.lblVia = new System.Windows.Forms.Label();
+            this.btnExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             // dgvStudents
             // 
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudents.Location = new System.Drawing.Point(196, 149);
+            this.dgvStudents.Location = new System.Drawing.Point(211, 149);
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.RowHeadersWidth = 51;
             this.dgvStudents.RowTemplate.Height = 24;
@@ -62,7 +63,7 @@
             // 
             // btnUpdateStudent
             // 
-            this.btnUpdateStudent.Location = new System.Drawing.Point(16, 269);
+            this.btnUpdateStudent.Location = new System.Drawing.Point(16, 244);
             this.btnUpdateStudent.Name = "btnUpdateStudent";
             this.btnUpdateStudent.Size = new System.Drawing.Size(174, 48);
             this.btnUpdateStudent.TabIndex = 3;
@@ -72,7 +73,7 @@
             // 
             // btnDeleteStudent
             // 
-            this.btnDeleteStudent.Location = new System.Drawing.Point(16, 380);
+            this.btnDeleteStudent.Location = new System.Drawing.Point(16, 332);
             this.btnDeleteStudent.Name = "btnDeleteStudent";
             this.btnDeleteStudent.Size = new System.Drawing.Size(174, 48);
             this.btnDeleteStudent.TabIndex = 4;
@@ -82,7 +83,7 @@
             // 
             // btnSummary
             // 
-            this.btnSummary.Location = new System.Drawing.Point(16, 498);
+            this.btnSummary.Location = new System.Drawing.Point(14, 418);
             this.btnSummary.Name = "btnSummary";
             this.btnSummary.Size = new System.Drawing.Size(174, 48);
             this.btnSummary.TabIndex = 5;
@@ -139,6 +140,16 @@
             this.lblVia.TabIndex = 9;
             this.lblVia.Text = "via ";
             // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(16, 489);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(172, 48);
+            this.btnExport.TabIndex = 10;
+            this.btnExport.Text = "Export to CSV";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -146,6 +157,7 @@
             this.BackColor = System.Drawing.Color.LightCyan;
             this.BackgroundImage = global::PRG282Project.Properties.Resources._5625780;
             this.ClientSize = new System.Drawing.Size(900, 563);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.lblVia);
             this.Controls.Add(this.cmbVia);
             this.Controls.Add(this.txtSearchVia);
@@ -175,6 +187,7 @@
         private System.Windows.Forms.TextBox txtSearchVia;
         private System.Windows.Forms.ComboBox cmbVia;
         private System.Windows.Forms.Label lblVia;
+        private System.Windows.Forms.Button btnExport;
     }
 }
 
