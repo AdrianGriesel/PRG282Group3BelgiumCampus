@@ -167,5 +167,17 @@ namespace PRG282Project
             CSVExport ce = new CSVExport();
             ce.ExportToCSV();
         }
+
+        private void btnDebug_Click(object sender, EventArgs e)
+        {
+            frmDebugger frmDebugger = new frmDebugger();
+            this.Hide();
+            frmDebugger.ShowDialog();
+        }
+
+        private void dgvStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 } 
