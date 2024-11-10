@@ -29,14 +29,14 @@ namespace PRG282Project
             List<Student> students = fileManager.GetAllStudents();
 
             string query = txtSql.Text.ToUpper(); // Get query from the TextBox
-            IEnumerable<Student> queryResult = students; // Initialize queryResult to all students by default
+            IEnumerable<Student> queryResult = students; 
 
             try
             {
                 // Handle SELECT query
                 if (query.StartsWith("SELECT * FROM STUDENTS"))
                 {
-                    // Remove the SQL part and apply LINQ filtering
+                    
                     string whereClause = query.Contains("WHERE") ? query.Substring(query.IndexOf("WHERE") + 5).Trim() : "";
 
                     if (!string.IsNullOrEmpty(whereClause))
@@ -81,7 +81,7 @@ namespace PRG282Project
                     dt.Rows.Add(student.StudentID, student.Name, student.Age, student.Course);
                 }
 
-                // Bind the result to the DataGridView
+                // Send the result to the DataGridView
                 dgvStudents.DataSource = dt;
             }
             catch (Exception ex)
