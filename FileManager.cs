@@ -10,11 +10,11 @@ namespace PRG282Project
 {
     internal class FileManager
     {
-        private readonly string studentFilePath = "students.txt";
-        private readonly string summaryFilePath = "summary.txt";
-
+        private readonly string studentFilePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "DataFolder", "TextDocuments", "students.txt");
+        private readonly string summaryFilePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "DataFolder", "TextDocuments", "summary.txt");
         public FileManager()
         {
+           
             //creating files if they do not exist
             if (!File.Exists(studentFilePath)) File.Create(studentFilePath).Dispose();
             if (!File.Exists(summaryFilePath)) File.Create(summaryFilePath).Dispose();
@@ -209,7 +209,7 @@ namespace PRG282Project
             List<Student> SearchResults = new List<Student>();
 
             SearchVia = SearchVia.Trim();
-            MessageBox.Show($"Selected Option: {cmbViaValue}, Search Value: {SearchVia}");
+
             switch (cmbViaValue)
             {
                
