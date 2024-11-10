@@ -158,8 +158,7 @@ namespace PRG282Project
         {
             string option = cmbVia.SelectedItem.ToString();
             string SearchVia = txtSearchVia.Text;
-            fileManager.Search(SearchVia, option);
-            dgvStudents.DataSource = fileManager.Search(SearchVia,option);
+            dgvStudents.DataSource = fileManager.Search(option,SearchVia);
 
         }
 

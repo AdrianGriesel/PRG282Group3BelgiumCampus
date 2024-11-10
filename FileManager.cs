@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
+using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace PRG282Project
 {
@@ -199,6 +202,64 @@ namespace PRG282Project
                     writer.WriteLine($"{student.StudentID},{student.Name},{student.Age},{student.Course}");
                 }
             }
+        }
+        public List<Student> Search(string cmbViaValue, string SearchVia) //changed to return list of students
+        {
+            List<Student> studentsList = GetAllStudents();
+            List<Student> SearchResults = new List<Student>();
+
+            SearchVia = SearchVia.Trim();
+            MessageBox.Show($"Selected Option: {cmbViaValue}, Search Value: {SearchVia}");
+            switch (cmbViaValue)
+            {
+               
+
+                case "Student ID":
+                    foreach (var student in studentsList)
+                    {
+                        if (student.StudentID == SearchVia) //check if the student ID matches the search criteria
+                        {
+                            SearchResults.Add(student);
+                        }
+
+                    }
+                    break;
+
+                case "Name":
+                    foreach (var student in studentsList)
+                    {
+                        if (student.Name == SearchVia)//check if the student Name matches the search criteria
+                        {
+                            SearchResults.Add(student);
+                        }
+                    }
+                    break;
+
+                case "Age":
+                    foreach (var student in studentsList)
+                    {
+                        if (student.Age.ToString() == SearchVia)//check if the student Age matches the search criteria
+                        {
+                            SearchResults.Add(student);
+                        }
+                    }
+                    break;
+
+                case "Course":
+                    foreach (var student in studentsList)
+                    {
+                        if (student.Course == SearchVia)//check if the student course matches the search criteria
+                        {
+                            SearchResults.Add(student);
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
+
+            }
+            return SearchResults;
         }
     }
 }

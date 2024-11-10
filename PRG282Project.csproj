@@ -46,8 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddStudent.cs" />
-    <Compile Include="DeleteStudent.cs" />
+    <Compile Include="CSVExport.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
