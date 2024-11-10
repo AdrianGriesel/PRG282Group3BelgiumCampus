@@ -44,6 +44,7 @@
             // 
             // btnAddStudent
             // 
+            this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddStudent.Location = new System.Drawing.Point(14, 119);
             this.btnAddStudent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddStudent.Name = "btnAddStudent";
@@ -55,18 +56,20 @@
             // 
             // dgvStudents
             // 
+            this.dgvStudents.BackgroundColor = System.Drawing.Color.LightCyan;
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudents.Location = new System.Drawing.Point(188, 119);
             this.dgvStudents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.RowHeadersWidth = 51;
             this.dgvStudents.RowTemplate.Height = 24;
-            this.dgvStudents.Size = new System.Drawing.Size(611, 318);
+            this.dgvStudents.Size = new System.Drawing.Size(595, 370);
             this.dgvStudents.TabIndex = 2;
             this.dgvStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudents_CellContentClick);
             // 
             // btnUpdateStudent
             // 
+            this.btnUpdateStudent.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdateStudent.Location = new System.Drawing.Point(14, 195);
             this.btnUpdateStudent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdateStudent.Name = "btnUpdateStudent";
@@ -78,6 +81,7 @@
             // 
             // btnDeleteStudent
             // 
+            this.btnDeleteStudent.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeleteStudent.Location = new System.Drawing.Point(14, 266);
             this.btnDeleteStudent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteStudent.Name = "btnDeleteStudent";
@@ -89,6 +93,7 @@
             // 
             // btnSummary
             // 
+            this.btnSummary.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSummary.Location = new System.Drawing.Point(12, 334);
             this.btnSummary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSummary.Name = "btnSummary";
@@ -100,6 +105,7 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSearch.Location = new System.Drawing.Point(14, 38);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
@@ -124,6 +130,7 @@
             "Name",
             "Age",
             "Course"});
+            this.cmbVia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbVia.FormattingEnabled = true;
             this.cmbVia.Items.AddRange(new object[] {
             "Student ID",
@@ -149,6 +156,7 @@
             // 
             // btnExport
             // 
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExport.Location = new System.Drawing.Point(14, 391);
             this.btnExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExport.Name = "btnExport";
@@ -160,6 +168,7 @@
             // 
             // btnDebug
             // 
+            this.btnDebug.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDebug.Location = new System.Drawing.Point(12, 451);
             this.btnDebug.Name = "btnDebug";
             this.btnDebug.Size = new System.Drawing.Size(155, 38);
@@ -188,6 +197,7 @@
             this.Controls.Add(this.btnAddStudent);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();

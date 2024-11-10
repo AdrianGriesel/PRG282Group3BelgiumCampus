@@ -90,5 +90,11 @@ namespace PRG282Project
             }
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            frmMain frmMain = new frmMain();
+            this.Hide();
+            
+        }
     }
 }

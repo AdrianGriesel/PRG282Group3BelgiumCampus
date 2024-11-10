@@ -16,6 +16,7 @@ namespace PRG282Project
         private FileManager fileManager;
         public frmMain()
         {
+  
             try
             {
                 //initializing the form components
