@@ -228,7 +228,7 @@ namespace PRG282Project
                 case "Name":
                     foreach (var student in studentsList)
                     {
-                        if (student.Name == SearchVia)//check if the student Name matches the search criteria
+                        if (student.Name.ToUpper() == SearchVia.ToUpper())//check if the student Name matches the search criteria
                         {
                             SearchResults.Add(student);
                         }
@@ -248,7 +248,7 @@ namespace PRG282Project
                 case "Course":
                     foreach (var student in studentsList)
                     {
-                        if (student.Course == SearchVia)//check if the student course matches the search criteria
+                        if (student.Course.ToUpper() == SearchVia.ToUpper())//check if the student course matches the search criteria
                         {
                             SearchResults.Add(student);
                         }

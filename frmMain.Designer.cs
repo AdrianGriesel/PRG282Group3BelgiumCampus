@@ -160,9 +160,9 @@
             // 
             // btnDebug
             // 
-            this.btnDebug.Location = new System.Drawing.Point(14, 456);
+            this.btnDebug.Location = new System.Drawing.Point(12, 451);
             this.btnDebug.Name = "btnDebug";
-            this.btnDebug.Size = new System.Drawing.Size(75, 23);
+            this.btnDebug.Size = new System.Drawing.Size(155, 38);
             this.btnDebug.TabIndex = 11;
             this.btnDebug.Text = "Debug";
             this.btnDebug.UseVisualStyleBackColor = true;
