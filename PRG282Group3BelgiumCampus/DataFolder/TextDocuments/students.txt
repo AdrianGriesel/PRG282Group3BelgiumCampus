@@ -1,0 +1,50 @@
+1,John Doe,20,Computer Science
+2,Jane Smith,22,Mathematics
+3,Michael Brown,21,Engineering
+4,Sarah Johnson,19,Business
+5,Emily Davis,23,Physics
+6,Daniel Garcia,20,Chemistry
+7,Laura Martinez,22,Biology
+8,James Wilson,21,Economics
+9,Linda Clark,20,Art History
+10,Robert Lewis,23,Philosophy
+11,Patricia Thomas,21,Law
+12,Christopher Walker,22,Mechanical Engineering
+13,Karen Hall,23,Environmental Science
+14,Matthew Robinson,20,Marketing
+15,Ashley Wright,19,Finance
+16,Jessica Green,21,Political Science
+17,Thomas Baker,22,Anthropology
+18,Elizabeth Adams,23,Psychology
+19,David Scott,20,Electrical Engineering
+20,Susan Nelson,22,Sociology
+21,Andrew Carter,21,Software Engineering
+22,Kimberly Mitchell,20,History
+23,Mark Perez,23,Linguistics
+24,Lisa Roberts,19,Physics
+25,Steven Turner,22,Computer Engineering
+26,Mary Phillips,21,Data Science
+27,Paul Campbell,20,Music
+28,Nancy Parker,23,Environmental Policy
+29,George Evans,21,Art
+30,Jennifer Edwards,19,Biology
+31,Brian Collins,22,Chemistry
+32,Amy Stewart,20,Architecture
+33,Joshua Sanchez,23,Physics
+34,Sarah Morris,21,Law
+35,Nicholas Rogers,22,International Relations
+36,Laura Reed,19,Media Studies
+37,Benjamin Cook,20,Statistics
+38,Anna Morgan,23,Philosophy
+39,Joseph Bell,21,Civil Engineering
+40,Sophia Murphy,22,Psychology
+41,Frank Price,20,Environmental Science
+42,Megan Ramirez,19,Journalism
+43,Aaron Foster,21,Graphic Design
+44,Hannah Henderson,23,Physics
+45,Brandon Kim,22,Anthropology
+46,Julia Sanders,20,Business
+47,Emily Russell,19,Economics
+48,Ryan Ward,21,Political Science
+49,Samantha Barnes,22,Computer Science
+50,Tyler Ross,23,Mathematics

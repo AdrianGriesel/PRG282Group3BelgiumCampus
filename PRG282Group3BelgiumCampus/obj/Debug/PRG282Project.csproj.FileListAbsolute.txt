@@ -1,0 +1,11 @@
+C:\Users\icgeorge\Source\Repos\PRG282Group3BelgiumCampus\bin\Debug\PRG282Project.exe.config
+C:\Users\icgeorge\Source\Repos\PRG282Group3BelgiumCampus\bin\Debug\PRG282Project.exe
+C:\Users\icgeorge\Source\Repos\PRG282Group3BelgiumCampus\bin\Debug\PRG282Project.pdb
+C:\Users\icgeorge\Source\Repos\PRG282Group3BelgiumCampus\obj\Debug\PRG282Project.csproj.AssemblyReference.cache
+C:\Users\icgeorge\Source\Repos\PRG282Group3BelgiumCampus\obj\Debug\PRG282Project.frmDebugger.resources
+C:\Users\icgeorge\Source\Repos\PRG282Group3BelgiumCampus\obj\Debug\PRG282Project.frmMain.resources
+C:\Users\icgeorge\Source\Repos\PRG282Group3BelgiumCampus\obj\Debug\PRG282Project.Properties.Resources.resources
+C:\Users\icgeorge\Source\Repos\PRG282Group3BelgiumCampus\obj\Debug\PRG282Project.csproj.GenerateResource.cache
+C:\Users\icgeorge\Source\Repos\PRG282Group3BelgiumCampus\obj\Debug\PRG282Project.csproj.CoreCompileInputs.cache
+C:\Users\icgeorge\Source\Repos\PRG282Group3BelgiumCampus\obj\Debug\PRG282Project.exe
+C:\Users\icgeorge\Source\Repos\PRG282Group3BelgiumCampus\obj\Debug\PRG282Project.pdb
